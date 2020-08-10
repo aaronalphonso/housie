@@ -1,0 +1,5 @@
+.idea/*
+housie/venv/*
+housie/__pycache__/*
+housie/models/__pycache__/*
+housie/data/*
