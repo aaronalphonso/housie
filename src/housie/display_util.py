@@ -2,7 +2,7 @@
 from itertools import zip_longest
 from typing import Dict, List
 
-from models import Housie, Ticket
+from housie.models import Housie, Ticket
 
 
 def display_followed_game(housie: Housie, ticket_data: Dict[str, List[Ticket]]):

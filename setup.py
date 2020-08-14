@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="housie-aaronalphonso",
+    name="housie",
     version="0.0.1",
     author="Aaron Alphonso",
     author_email="alphonsoaaron1993@gmail.com",
@@ -13,7 +13,9 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/aaronalphonso/housie",
-    packages=setuptools.find_packages(),
+    packages=['housie'],
+    # py_modules=['housie'],
+    package_dir={'': 'src'},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",

@@ -7,11 +7,11 @@ https://en.wikipedia.org/wiki/Bingo_(British_version)
 """
 from typing import Dict, List
 
-from utils import load_json, save_json, clear_screen
-from constants import INSTRUCTIONS, Number, FOLLOW_GAME_TICKETS_NOT_FOUND_MSG
-from models import Housie, Ticket, load_tickets
-from display_util import display_followed_game
-from generate_ticket import generate_ticket
+from housie.utils import load_json, save_json, clear_screen
+from housie.constants import INSTRUCTIONS, Number, FOLLOW_GAME_TICKETS_NOT_FOUND_MSG
+from housie.models import Housie, Ticket, load_tickets
+from housie.display_util import display_followed_game
+from housie.generate_ticket import generate_ticket
 
 
 def print_options() -> str:
@@ -109,6 +109,7 @@ def generate_tickets():
 		print(name)
 		for ticket in tickets:
 			print(ticket.display_ticket())
+		# Convert from ticket object in a list of rows representing the ticket so we can save and load it from json
 		ticket_data[name] = [ticket.rows for ticket in tickets]
 	save_json(ticket_data, 'data/generated_tickets.json')
 	print("The generated tickets can also be found in the 'data/generated_tickets.json' file")

@@ -2,8 +2,8 @@
 from typing import List, Optional
 from random import choice
 
-from constants import SelectedPool, RemainingPool, Number, NUMBER_POOL
-from utils import clear_screen
+from housie.constants import SelectedPool, RemainingPool, Number, NUMBER_POOL
+from housie.utils import clear_screen
 
 
 class Housie:
@@ -84,7 +84,3 @@ def demo_board():
 	housie.pick_many(40)
 	clear_screen()
 	print(housie.display_board())
-
-
-if __name__ == '__main__':
-	demo_board()

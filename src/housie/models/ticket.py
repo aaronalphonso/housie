@@ -1,8 +1,8 @@
 """Simple Housie Ticket class to store and display a ticket"""
 from typing import List, Dict, Optional, Set
 
-from constants import Row, COLUMN_RANGES, Number
-from utils import load_json, strike_through, clear_screen
+from housie.constants import Row, COLUMN_RANGES, Number, NUMBER_POOL
+from housie.utils import load_json, strike_through, clear_screen
 
 
 class Ticket:
@@ -105,21 +105,28 @@ def load_tickets(file_name: str) -> Optional[Dict[str, List[Ticket]]]:
 	return ticket_data
 
 
-def demo():
-	ticket_data = load_tickets('followed_tickets.json')
+def demo_ticket():
+	"""Method to demonstrate how tickets would look like with some numbers marked"""
+	from housie.generate_ticket import generate_ticket
 
+	# Generate some sample tickets
+	names = ['Thor', 'Ironman', 'Spiderman']
+	ticket_data = {}
+	for name in names:
+		ticket = generate_ticket()
+		ticket_data[name] = [ticket]
+
+	# Mark some random numbers so we can see the output
+	from random import sample
+	random_numbers = sample(NUMBER_POOL, 40)
 	for name, tickets in ticket_data.items():
 		for ticket in tickets:
-			ticket.mark_number(1)
-			ticket.mark_number(20)
-			ticket.mark_number(59)
+			for number in random_numbers:
+				ticket.mark_number(number)
 
+	# Display the tickets
 	clear_screen()
 	for name, tickets in ticket_data.items():
 		print(name)
 		for ticket in tickets:
 			print(ticket.display_ticket())
-
-
-if __name__ == '__main__':
-	demo()

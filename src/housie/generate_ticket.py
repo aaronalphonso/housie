@@ -3,8 +3,8 @@ from collections import defaultdict
 from random import choice, randint
 from typing import List, Set, Dict, DefaultDict
 
-from constants import Number, Row, ColumnRange, COLUMN_RANGES
-from models import Ticket
+from housie.constants import Number, Row, ColumnRange, COLUMN_RANGES
+from housie.models import Ticket
 
 
 def select_unique_number_from_range(column_range: ColumnRange, already_selected: List[Number]):
@@ -115,7 +115,8 @@ def insert_from_columns_to_rows(column: List[Number], ticket: List[Row], row_num
 	return last_row_num
 
 
-if __name__ == '__main__':
+def demo_ticket_generation() -> None:
+	"""Demonstrates ticket generation by generating a ticket and printing it visually"""
 	sample_ticket = generate_ticket()
 	print("Concise representation")
 	print(sample_ticket.display_ticket())
