@@ -7,3 +7,5 @@ src/housie.egg-info/*
 src/housie/housie.egg-info/*
 src/housie/models/__pycache__/*
 src/data/*
+build/*
+dist/*

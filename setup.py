@@ -13,8 +13,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/aaronalphonso/housie",
-    packages=['housie'],
-    # py_modules=['housie'],
+    packages=['housie', 'housie.models'],
     package_dir={'': 'src'},
     classifiers=[
         "Programming Language :: Python :: 3",
