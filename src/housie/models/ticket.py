@@ -95,7 +95,7 @@ class Ticket:
 
 
 def load_tickets(file_name: str) -> Optional[Dict[str, List[Ticket]]]:
-	"""Reads the followed_tickets.json file and returns a dict of name : tickets"""
+	"""Reads the input file and tries to parse the data into a dict of name : tickets"""
 	ticket_data = load_json(file_name)
 	if not ticket_data:
 		return None

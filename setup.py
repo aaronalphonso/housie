@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="housie",
-    version="0.0.2",
+    version="0.0.3",
     author="Aaron Alphonso",
     author_email="alphonsoaaron1993@gmail.com",
     description="All the core logic for playing/simulating the popular game 'Housie' "

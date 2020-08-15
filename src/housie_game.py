@@ -3,6 +3,6 @@
 This was required as we needed to run the script from the same level as the housie/ package in order for the imports
 to work correctly.
 """
-from housie.game import main_menu
+from housie.game import display_main_menu
 
-main_menu()
+display_main_menu()

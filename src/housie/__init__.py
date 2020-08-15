@@ -7,3 +7,5 @@ generate_ticket - A function that generates tickets for use in the game
 
 from .models import Board, Ticket, demo_board, demo_ticket, load_tickets
 from .generate_ticket import generate_ticket, demo_ticket_generation
+from .game import display_main_menu
+
