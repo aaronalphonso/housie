@@ -119,7 +119,7 @@ def demo_ticket_generation() -> None:
 	"""Demonstrates ticket generation by generating a ticket and printing it visually"""
 	sample_ticket = generate_ticket()
 	print("Concise representation")
-	print(sample_ticket.display_ticket())
+	print(sample_ticket.minimalistic_display())
 
 	print("Structural representation")
 	print(sample_ticket.structural_display())

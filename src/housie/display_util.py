@@ -2,28 +2,28 @@
 from itertools import zip_longest
 from typing import Dict, List
 
-from housie.models import Housie, Ticket
+from housie.models import Board, Ticket
 
 
-def display_followed_game(housie: Housie, ticket_data: Dict[str, List[Ticket]]):
+def display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]):
 	"""Use this to select how you want the game displayed. The complex display looks better, but may not work in all
 	sizes of terminals. Use the simple display as a fall back"""
 	# Side-by-Side display with minimalistic ticket design
 	# _complex_display_followed_game(housie, ticket_data, 'minimalistic_display', 24)
 
 	# Side-by-Side display with traditional/structural ticket design
-	_complex_display_followed_game(housie, ticket_data, 'structural_display', 36)
+	_complex_display_followed_game(board, ticket_data, 'structural_display', 36)
 
 	# Simplistic vertical scrolling display
 	# _simple_display_followed_game(housie, ticket_data)
 
 
-def _simple_display_followed_game(housie: Housie, ticket_data: Dict[str, List[Ticket]]):
+def _simple_display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]):
 	"""Simple Display method for use in following a game
 
 	Displays the board followed by the tickets
 	"""
-	print(housie.display_board())
+	print(board.display_board())
 	for name, tickets in ticket_data.items():
 		print(name)
 		for ticket in tickets:
@@ -31,7 +31,7 @@ def _simple_display_followed_game(housie: Housie, ticket_data: Dict[str, List[Ti
 
 
 def _complex_display_followed_game(
-		housie: Housie, ticket_data: Dict[str, List[Ticket]], display_method: str, line_len: int):
+		board: Board, ticket_data: Dict[str, List[Ticket]], display_method: str, line_len: int):
 	"""Side-by-Side Display method for use in following a game.
 	Tries to fit the tickets besides the board instead of below.
 
@@ -40,7 +40,7 @@ def _complex_display_followed_game(
 
 	Allows to display up to 8 tickets in a nice clean manner. After that, the view could get a little messy
 	"""
-	board_element = DisplayElement(housie.display_board())
+	board_element = DisplayElement(board.display_board())
 	ticket_elements = []
 	for name, tickets in ticket_data.items():
 		ticket_str = ''

@@ -9,7 +9,7 @@ from typing import Dict, List
 
 from housie.utils import load_json, save_json, clear_screen
 from housie.constants import INSTRUCTIONS, Number, FOLLOW_GAME_TICKETS_NOT_FOUND_MSG
-from housie.models import Housie, Ticket, load_tickets
+from housie.models import Board, Ticket, load_tickets
 from housie.display_util import display_followed_game
 from housie.generate_ticket import generate_ticket
 
@@ -31,15 +31,15 @@ def host_new_game():
 	Starts with a blank board. Randomly picks numbers and updates the board when you ask it to
 	"""
 	options = "Press 'Enter' to pick the next number\nPress 'Q' followed by 'Enter' to quit\n"
-	housie = Housie()
+	board = Board()
 	clear_screen()
-	print(housie.display_board())
+	print(board.display_board())
 	user_choice = ''
 	while user_choice not in ['Q', 'q']:
 		user_choice = input(options)
-		housie.pick_next()
+		board.pick_next()
 		clear_screen()
-		print(housie.display_board())
+		print(board.display_board())
 
 
 def follow_game():
@@ -60,26 +60,26 @@ def follow_game():
 	friends, and then use the host a game mode to play.
 	"""
 	already_selected_numbers = load_json('data/followed_housie.json')
-	housie = Housie(already_selected_numbers)
+	board = Board(already_selected_numbers)
 	ticket_data: Dict[str, List[Ticket]] = load_tickets('data/followed_tickets.json')
 	if not ticket_data:
 		print(FOLLOW_GAME_TICKETS_NOT_FOUND_MSG)
 		return None
-	mark_tickets_full_board(housie, ticket_data)
+	mark_tickets_full_board(board, ticket_data)
 	while True:
 		clear_screen()
-		display_followed_game(housie, ticket_data)
+		display_followed_game(board, ticket_data)
 		user_choice = input("Press 'Q' to quit. Enter next number: ")
 		if user_choice == 'Q' or user_choice == 'q':
 			break
 		elif user_choice.isnumeric():
 			number = int(user_choice)
-			housie.pick_manual(number)
-			save_json(housie.selected, 'data/followed_housie.json')
+			board.pick_manual(number)
+			save_json(board.selected, 'data/followed_housie.json')
 			mark_tickets(number, ticket_data)
 
 
-def mark_tickets_full_board(housie: Housie, ticket_data: Dict[str, List[Ticket]]):
+def mark_tickets_full_board(housie: Board, ticket_data: Dict[str, List[Ticket]]):
 	"""Updates the tickets with all numbers from the housie board"""
 	for name, tickets in ticket_data.items():
 		for ticket in tickets:

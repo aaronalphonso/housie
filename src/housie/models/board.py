@@ -6,7 +6,7 @@ from housie.constants import SelectedPool, RemainingPool, Number, NUMBER_POOL
 from housie.utils import clear_screen
 
 
-class Housie:
+class Board:
 	"""Represents the Housie board state and logic to run the game and display the state"""
 
 	def __init__(self, already_selected: Optional[SelectedPool] = None):
@@ -80,7 +80,7 @@ class Housie:
 
 def demo_board():
 	"""Test function to print out how the board would look with a few numbers filled"""
-	housie = Housie()
-	housie.pick_many(40)
+	housie_board = Board()
+	housie_board.pick_many(40)
 	clear_screen()
-	print(housie.display_board())
+	print(housie_board.display_board())
