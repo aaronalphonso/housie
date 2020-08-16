@@ -1,4 +1,9 @@
 """Reusable utilities across the project"""
+
+__author__ = 'Aaron Alphonso'
+__email__ = 'alphonsoaaron1993@gmail.com'
+
+
 import os
 import json
 from functools import wraps

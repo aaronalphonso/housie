@@ -1,5 +1,9 @@
 """Constants file for holding constant values declared throughout the app"""
 
+__author__ = 'Aaron Alphonso'
+__email__ = 'alphonsoaaron1993@gmail.com'
+
+
 from typing import List, NamedTuple
 
 # Type Aliases

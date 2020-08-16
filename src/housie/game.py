@@ -5,6 +5,11 @@ Classic Housie Board game
 Also known as Bingo
 https://en.wikipedia.org/wiki/Bingo_(British_version)
 """
+
+__author__ = 'Aaron Alphonso'
+__email__ = 'alphonsoaaron1993@gmail.com'
+
+
 from typing import Dict, List
 
 from housie.utils import load_json, save_json, clear_screen, dynamic_doc

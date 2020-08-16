@@ -1,20 +1,15 @@
 """Housie Ticket generation logic"""
+
+__author__ = 'Aaron Alphonso'
+__email__ = 'alphonsoaaron1993@gmail.com'
+
+
 from collections import defaultdict
 from random import choice, randint
 from typing import List, Set, Dict, DefaultDict
 
 from housie.constants import Number, Row, ColumnRange, COLUMN_RANGES
 from housie.models import Ticket
-
-
-def select_unique_number_from_range(column_range: ColumnRange, already_selected: List[Number]):
-	"""Selects and returns a number randomly from a ColumnRange. If the number has already been selected before, then
-	re-select a new number"""
-	selected_number: Number = randint(column_range.start, column_range.end)
-	# If the selected_number is already_selected, select a new number until we get a unique number
-	while selected_number in already_selected:
-		selected_number = randint(column_range.start, column_range.end)
-	return selected_number
 
 
 def generate_ticket() -> Ticket:
@@ -72,6 +67,16 @@ def generate_ticket() -> Ticket:
 	# Now we assign the 15 selected numbers into the 3 rows.
 	rows = assign_to_rows(column_wise_numbers)
 	return Ticket(rows)
+
+
+def select_unique_number_from_range(column_range: ColumnRange, already_selected: List[Number]):
+	"""Selects and returns a number randomly from a ColumnRange. If the number has already been selected before, then
+	re-select a new number"""
+	selected_number: Number = randint(column_range.start, column_range.end)
+	# If the selected_number is already_selected, select a new number until we get a unique number
+	while selected_number in already_selected:
+		selected_number = randint(column_range.start, column_range.end)
+	return selected_number
 
 
 def assign_to_rows(column_wise_numbers: Dict[ColumnRange, List[Number]]) -> List[Row]:

@@ -1,4 +1,9 @@
 """Simple Housie Ticket class to store and display a ticket"""
+
+__author__ = 'Aaron Alphonso'
+__email__ = 'alphonsoaaron1993@gmail.com'
+
+
 from typing import List, Dict, Optional, Set
 
 from housie.constants import Row, COLUMN_RANGES, Number, NUMBER_POOL

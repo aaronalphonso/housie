@@ -1,4 +1,9 @@
 """Complex logic for displaying a followed game conveniently in terminal"""
+
+__author__ = 'Aaron Alphonso'
+__email__ = 'alphonsoaaron1993@gmail.com'
+
+
 from itertools import zip_longest
 from typing import Dict, List
 
