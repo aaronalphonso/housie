@@ -1,3 +1,4 @@
+*.pyc
 .idea/*
 housie.egg-info/*
 src/housie/venv/*
@@ -9,3 +10,4 @@ src/housie/models/__pycache__/*
 src/data/*
 build/*
 dist/*
+venv/*

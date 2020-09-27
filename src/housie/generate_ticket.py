@@ -62,14 +62,12 @@ def generate_ticket() -> Ticket:
 			column_ranges.remove(selected_range)
 
 	# Convert to a regular dict now as we no longer need the defaultdict properties
-	column_wise_numbers = dict(column_wise_numbers)
-
 	# Now we assign the 15 selected numbers into the 3 rows.
-	rows = assign_to_rows(column_wise_numbers)
+	rows = assign_to_rows(dict(column_wise_numbers))
 	return Ticket(rows)
 
 
-def select_unique_number_from_range(column_range: ColumnRange, already_selected: List[Number]):
+def select_unique_number_from_range(column_range: ColumnRange, already_selected: List[Number]) -> Number:
 	"""Selects and returns a number randomly from a ColumnRange. If the number has already been selected before, then
 	re-select a new number"""
 	selected_number: Number = randint(column_range.start, column_range.end)
