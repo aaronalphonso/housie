@@ -1,4 +1,5 @@
 """Reusable utilities across the project"""
+from typing import Any
 
 __author__ = 'Aaron Alphonso'
 __email__ = 'alphonsoaaron1993@gmail.com'
@@ -35,14 +36,14 @@ def create_data_dir_if_not_exists() -> None:
 		os.makedirs(DATA_DIR)
 
 
-def save_json(data, filename: str) -> None:
-	"""Saves the input dict to a file"""
+def save_json(data: Any, filename: str) -> None:
+	"""Saves the input data to a file"""
 	create_data_dir_if_not_exists()
 	with open(filename, 'w') as file:
 		json.dump(data, file)
 
 
-def load_json(filename: str):
+def load_json(filename: str) -> Any:
 	"""Loads and returns the json data from a file as json. If the file is missing, returns None"""
 	try:
 		with open(filename) as file:
