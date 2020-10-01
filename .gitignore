@@ -2,6 +2,8 @@
 housie.egg-info/*
 src/housie/venv/*
 src/housie/__pycache__/*
+src/housie/*.pyc
+src/housie/models/*.pyc
 src/__pycache__/*
 src/housie.egg-info/*
 src/housie/housie.egg-info/*
@@ -9,3 +11,4 @@ src/housie/models/__pycache__/*
 src/data/*
 build/*
 dist/*
+venv/*
