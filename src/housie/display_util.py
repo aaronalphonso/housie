@@ -10,7 +10,7 @@ from typing import Dict, List
 from housie.models import Board, Ticket
 
 
-def display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]):
+def display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]) -> None:
 	"""Use this to select how you want the game displayed. The complex display looks better, but may not work in all
 	sizes of terminals. Use the simple display as a fall back"""
 	# Side-by-Side display with minimalistic ticket design
@@ -23,7 +23,7 @@ def display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]):
 	# _simple_display_followed_game(housie, ticket_data)
 
 
-def _simple_display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]):
+def _simple_display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]) -> None:
 	"""Simple Display method for use in following a game
 
 	Displays the board followed by the tickets
@@ -36,7 +36,7 @@ def _simple_display_followed_game(board: Board, ticket_data: Dict[str, List[Tick
 
 
 def _complex_display_followed_game(
-		board: Board, ticket_data: Dict[str, List[Ticket]], display_method: str, line_len: int):
+		board: Board, ticket_data: Dict[str, List[Ticket]], display_method: str, line_len: int) -> None:
 	"""Side-by-Side Display method for use in following a game.
 	Tries to fit the tickets besides the board instead of below.
 
@@ -63,7 +63,7 @@ def _complex_display_followed_game(
 		print(combined_element.content)
 
 
-def fold(display_elements):
+def fold(display_elements: List[DisplayElement]) -> DisplayElement:
 	"""Split the incoming list of elements into two side-by-side columns"""
 	middle = len(display_elements) // 2
 	column1 = display_elements[:middle]
@@ -90,6 +90,6 @@ def fold(display_elements):
 
 class DisplayElement:
 	"""A wrapper object to group together multiple lines of text as a single element"""
-	def __init__(self, content):
+	def __init__(self, content: str) -> None:
 		self.row_wise_data = content.split('\n')
 		self.content = content
