@@ -14,7 +14,7 @@ from housie.utils import clear_screen
 class Board:
 	"""Represents the Housie board state and logic to run the game and display the state"""
 
-	def __init__(self, already_selected: Optional[SelectedPool] = None):
+	def __init__(self, already_selected: Optional[SelectedPool] = None) -> None:
 		"""Initialize the state of the board.
 		Either a blank new board, or some pre-selected numbers to represent an already mid-way game"""
 		# Variables for holding game state
@@ -83,7 +83,7 @@ class Board:
 		return board
 
 
-def demo_board():
+def demo_board() -> None:
 	"""Test function to print out how the board would look with a few numbers filled"""
 	housie_board = Board()
 	housie_board.pick_many(40)

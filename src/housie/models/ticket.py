@@ -37,14 +37,14 @@ class Ticket:
 		for number in numbers:
 			self.mark_number(number)
 
-	def __repr__(self):
+	def __repr__(self) -> str:
 		return "Ticket(numbers={})".format(self.rows)
 
 	def display_ticket(self) -> str:
 		"""Display the ticket"""
 		return self.structural_display()
 
-	def minimalistic_display(self):
+	def minimalistic_display(self) -> str:
 		"""Displays the ticket in a minimalistic format"""
 		ticket_representation = ''
 		for row in self.rows:
@@ -58,7 +58,7 @@ class Ticket:
 			ticket_representation += ','.join(row_elems) + '\n'
 		return ticket_representation
 
-	def structural_display(self):
+	def structural_display(self) -> str:
 		"""Displays the ticket in a 3 x 9 grid as is seen on traditional tickets"""
 		ticket_representation = ''
 		for row in self.get_structural_representation():
@@ -73,7 +73,7 @@ class Ticket:
 			ticket_representation += '\n'
 		return ticket_representation
 
-	def get_structural_representation(self):
+	def get_structural_representation(self) -> List[Row]:
 		"""Returns a representation of the ticket in a 3 x 9 grid with blank squares represented by None
 
 		This representation can be used for a graphical display.
@@ -110,7 +110,7 @@ def load_tickets(file_name: str) -> Optional[Dict[str, List[Ticket]]]:
 	return ticket_data
 
 
-def demo_ticket():
+def demo_ticket() -> None:
 	"""Method to demonstrate how tickets would look like with some numbers marked"""
 	from housie.generate_ticket import generate_ticket
 
