@@ -32,7 +32,7 @@ def print_options() -> str:
 	return option
 
 
-def host_new_game():
+def host_new_game() -> None:
 	"""Host a Housie Game.
 	Starts with a blank board. Randomly picks numbers and updates the board when you ask it to
 	"""
@@ -49,7 +49,7 @@ def host_new_game():
 
 
 @dynamic_doc
-def follow_game():
+def follow_game() -> None:
 	"""Allows you to play along/follow a game being hosted by someone else.
 
 	Reads your tickets from '{FOLLOWED_TICKETS_FILE}' and displays them.
@@ -89,14 +89,14 @@ def follow_game():
 			mark_tickets(number, ticket_data)
 
 
-def mark_tickets_full_board(board: Board, ticket_data: Dict[str, List[Ticket]]):
+def mark_tickets_full_board(board: Board, ticket_data: Dict[str, List[Ticket]]) -> None:
 	"""Updates the tickets with all numbers from the housie board"""
 	for name, tickets in ticket_data.items():
 		for ticket in tickets:
 			ticket.mark_numbers(board.selected)
 
 
-def mark_tickets(number: Number, ticket_data: Dict[str, List[Ticket]]):
+def mark_tickets(number: Number, ticket_data: Dict[str, List[Ticket]]) -> None:
 	"""Updates the tickets with all numbers from the housie board"""
 	for name, tickets in ticket_data.items():
 		for ticket in tickets:
@@ -104,7 +104,7 @@ def mark_tickets(number: Number, ticket_data: Dict[str, List[Ticket]]):
 
 
 @dynamic_doc
-def generate_tickets():
+def generate_tickets() -> None:
 	"""Allows you to generate housie tickets for use in a game. Enter the names of the players and numbers of tickets
 	per player
 
@@ -127,7 +127,7 @@ def generate_tickets():
 
 
 @dynamic_doc
-def display_main_menu():
+def display_main_menu() -> None:
 	"""The starting menu presented to the user
 
 	Supported Options are as follows :
