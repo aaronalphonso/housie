@@ -35,6 +35,13 @@ def _simple_display_followed_game(board: Board, ticket_data: Dict[str, List[Tick
 			print(ticket.display_ticket())
 
 
+class DisplayElement:
+	"""A wrapper object to group together multiple lines of text as a single element"""
+	def __init__(self, content: str) -> None:
+		self.row_wise_data = content.split('\n')
+		self.content = content
+
+
 def _complex_display_followed_game(
 		board: Board, ticket_data: Dict[str, List[Ticket]], display_method: str, line_len: int) -> None:
 	"""Side-by-Side Display method for use in following a game.
@@ -86,10 +93,3 @@ def fold(display_elements: List[DisplayElement]) -> DisplayElement:
 	for col1, col2 in zip_longest(column1_rows, column2_rows, fillvalue=fill_value):
 		combined_str += col1 + 5 * space + col2 + '\n'
 	return DisplayElement(combined_str)
-
-
-class DisplayElement:
-	"""A wrapper object to group together multiple lines of text as a single element"""
-	def __init__(self, content: str) -> None:
-		self.row_wise_data = content.split('\n')
-		self.content = content
