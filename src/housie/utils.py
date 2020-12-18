@@ -1,5 +1,5 @@
 """Reusable utilities across the project"""
-from typing import Any
+from typing import Any, Callable, TypeVar, cast
 
 __author__ = 'Aaron Alphonso'
 __email__ = 'alphonsoaaron1993@gmail.com'
@@ -52,16 +52,19 @@ def load_json(filename: str) -> Any:
 		return None
 
 
-def dynamic_doc(func):
+F = TypeVar('F', bound=Callable[..., Any])
+
+
+def dynamic_doc(func: F) -> F:
 	"""Decorator to insert the actual values of variables into the docstrings of certain methods.
 
 	This is so that we can insert certain values from our constants into our docstrings to make them more accurate
 	"""
 	@wraps(func)
-	def wrapper(*args, **kwargs):
+	def wrapper(*args, **kwargs):   # type: ignore
 		"""No added behavior in the wrapper apart from the formatted docstring"""
 		return func(*args, **kwargs)
 	# Format the original docstring with the constant values
 	from housie import constants
-	wrapper.__doc__ = func.__doc__.format(**constants.__dict__)
-	return wrapper
+	wrapper.__doc__ = func.__doc__.format(**constants.__dict__)     # type: ignore
+	return cast(F, wrapper)

@@ -51,7 +51,7 @@ class Board:
 		self.selected = []
 		self.remaining = NUMBER_POOL.copy()
 
-	def init_custom_game(self, already_selected: list) -> None:
+	def init_custom_game(self, already_selected: List[Number]) -> None:
 		"""Initialize a new game with a set of numbers already called out"""
 		self.selected = already_selected
 		self.remaining = list(set(NUMBER_POOL) - set(already_selected))

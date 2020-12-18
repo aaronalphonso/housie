@@ -73,14 +73,14 @@ class Ticket:
 			ticket_representation += '\n'
 		return ticket_representation
 
-	def get_structural_representation(self) -> List[Row]:
+	def get_structural_representation(self) -> List[List[Optional[Number]]]:
 		"""Returns a representation of the ticket in a 3 x 9 grid with blank squares represented by None
 
 		This representation can be used for a graphical display.
 		"""
 		representation = []
 		for row in self.rows:
-			new_row = []
+			new_row: List[Optional[Number]] = []
 			row_iter = iter(row)
 			num = next(row_iter)
 			if num:

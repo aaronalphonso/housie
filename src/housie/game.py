@@ -10,11 +10,11 @@ __author__ = 'Aaron Alphonso'
 __email__ = 'alphonsoaaron1993@gmail.com'
 
 
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from housie.utils import load_json, save_json, clear_screen, dynamic_doc
 from housie.constants import INSTRUCTIONS, Number, FOLLOW_GAME_TICKETS_NOT_FOUND_MSG, FOLLOWED_TICKETS_FILE, \
-	FOLLOWED_BOARD_FILE, GENERATED_TICKETS_FILE
+	FOLLOWED_BOARD_FILE, GENERATED_TICKETS_FILE, TicketRepresentation
 from housie.models import Board, Ticket, load_tickets
 from housie.display_util import display_followed_game
 from housie.generate_ticket import generate_ticket
@@ -71,7 +71,7 @@ def follow_game() -> None:
 	"""
 	already_selected_numbers = load_json(FOLLOWED_BOARD_FILE)
 	board = Board(already_selected_numbers)
-	ticket_data: Dict[str, List[Ticket]] = load_tickets(FOLLOWED_TICKETS_FILE)
+	ticket_data: Optional[Dict[str, List[Ticket]]] = load_tickets(FOLLOWED_TICKETS_FILE)
 	if not ticket_data:
 		print(FOLLOW_GAME_TICKETS_NOT_FOUND_MSG)
 		return None
@@ -113,10 +113,10 @@ def generate_tickets() -> None:
 	clear_screen()
 	names = input("Enter the names of users playing the game. Separate each name with a space: ")
 	number = input("Enter the number of tickets to be generated per user: ")
-	ticket_data: Dict[str, List[Ticket]] = {}
-	names = map(str.strip, names.split())
-	for name in names:
-		tickets = [generate_ticket() for i in range(int(number))]
+	ticket_data: Dict[str, List[TicketRepresentation]] = {}
+	names_list = map(str.strip, names.split())
+	for name in names_list:
+		tickets = [generate_ticket() for _ in range(int(number))]
 		print(name)
 		for ticket in tickets:
 			print(ticket.display_ticket())

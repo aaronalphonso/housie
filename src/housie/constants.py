@@ -17,6 +17,7 @@ SelectedPool = List[Number]
 
 # Ticket Related Types
 Row = List[Number]
+TicketRepresentation = List[Row]
 ColumnRange = NamedTuple('ColumnRange', [('start', Number), ('end', Number)])
 
 # User Menu Selection Choice Type
