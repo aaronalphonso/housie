@@ -1,0 +1,9 @@
+[flake8]
+max_line_length = 121
+exclude = .git, .idea, .mypy_cache, __pycache__, venv, build, dist
+per-file-ignores =
+    # Ignore trailing whitespaces in the INSTRUCTIONS string
+    src/housie/constants.py:W291
+    # Ignore imported but unused errors in __init__.py files
+    src/housie/__init__.py:F401
+    src/housie/models/__init__.py:F401

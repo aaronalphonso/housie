@@ -12,4 +12,3 @@ __email__ = 'alphonsoaaron1993@gmail.com'
 from .models import Board, Ticket, demo_board, demo_ticket, load_tickets
 from .generate_ticket import generate_ticket, demo_ticket_generation
 from .game import display_main_menu
-
