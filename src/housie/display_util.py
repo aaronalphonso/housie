@@ -9,7 +9,7 @@ from typing import Dict, List
 from housie.models import Board, Ticket
 
 
-def display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]) -> None:
+def display_followed_game(board: Board, ticket_data: Dict[str, List[Ticket]]):
     """Use this to select how you want the game displayed. The complex display looks better, but may not work in all
     sizes of terminals. Use the simple display as a fall back"""
     # Side-by-Side display with minimalistic ticket design
@@ -90,7 +90,7 @@ def fold(display_elements: List[DisplayElement]) -> DisplayElement:
 
     combined_str = ''
     space = ' '
-    fill_value = len(column1_rows[0]) * ' ' if len(column2_rows) > len(column1_rows) else len(column2_rows[0]) * ' '
+    fill_value = len(column1_rows[0]) * ' ' if len(column2_rows) > len(column1_rows) else                      len(column2_rows[0]) * ' '
     for col1, col2 in zip_longest(column1_rows, column2_rows, fillvalue=fill_value):
         combined_str += col1 + 5 * space + col2 + '\n'
     return DisplayElement(combined_str)
