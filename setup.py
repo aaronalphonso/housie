@@ -1,11 +1,14 @@
+import os
 import setuptools
 
-with open("README.md", "r") as fh:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(BASE_DIR, "README.MD"), "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="housie",
-    version="0.1.3",
+    version="0.1.4",
     author="Aaron Alphonso",
     author_email="alphonsoaaron1993@gmail.com",
     description="All the core logic for playing/simulating the popular game 'Housie' "
