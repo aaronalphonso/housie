@@ -26,9 +26,13 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8
-    - name: Test with mypy
+    - name: Run Mypy Static Analysis
       run: |
         mypy
+    - name: Install housie package and Run Unit Tests
+      run: |
+        pip install .
+        pytest
 
   deploy:
     needs: build
@@ -51,3 +55,4 @@ jobs:
         run: |
           python setup.py sdist bdist_wheel
           twine upload --repository testpypi dist/*
+        continue-on-error: true
