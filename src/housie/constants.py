@@ -23,7 +23,7 @@ ColumnRange = NamedTuple('ColumnRange', [('start', Number), ('end', Number)])
 Choice = str
 
 # List of Valid ranges for each column of the ticket
-COLUMN_RANGES = \
+COLUMN_RANGES: List[ColumnRange] = \
     [ColumnRange(1, 9)] + [ColumnRange(start, start + 9) for start in range(10, 71, 10)] + [ColumnRange(80, 90)]
 
 # Constants related to data files

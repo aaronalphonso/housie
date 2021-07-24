@@ -27,6 +27,10 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8
-    - name: Mypy Static Analysis
+    - name: Run Mypy Static Analysis
       run: |
         mypy
+    - name: Install housie package and Run Unit Tests
+      run: |
+        pip install .
+        pytest
