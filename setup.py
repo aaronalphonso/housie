@@ -8,7 +8,7 @@ with open(os.path.join(BASE_DIR, "README.MD"), "r") as fh:
 
 setuptools.setup(
     name="housie",
-    version="0.1.4",
+    version="0.1.6",
     author="Aaron Alphonso",
     author_email="alphonsoaaron1993@gmail.com",
     description="All the core logic for playing/simulating the popular game 'Housie' "
