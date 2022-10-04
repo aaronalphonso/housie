@@ -5,7 +5,7 @@ name: Pull Request Quality Checks
 
 on:
   pull_request:
-    branches: [ develop, master ]
+    branches: [ main ]
 
 jobs:
   build:
