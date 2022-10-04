@@ -8,9 +8,9 @@ with open(os.path.join(BASE_DIR, "README.MD"), "r") as fh:
 
 setuptools.setup(
     name="housie",
-    version="0.1.8",
+    version="0.1.9",
     author="Aaron Alphonso",
-    author_email="alphonsoaaron1993@gmail.com",
+    author_email="alphonsoaaron19@gmail.com",
     description="All the core logic for playing/simulating the popular game 'Housie' "
                 "(also known as 'Bingo' or 'Tambola')",
     long_description=long_description,
