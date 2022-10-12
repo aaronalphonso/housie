@@ -1,0 +1,24 @@
+[project]
+name = "housie"
+version = "0.2.0"
+description = "All the core logic for playing/simulating the popular game 'Housie' (also known as 'Bingo' or 'Tambola')"
+readme = "README.md"
+requires-python = ">=3.6"
+license = { file = "LICENSE.txt"}
+authors = [
+    { name = "Aaron Alphonso", email = "alphonsoaaron19@gmail.com>" }
+]
+keywords = ["python", "housie", "core", "tambola", "bingo", "ticket", "generator", "board", "game"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+urls = { source = "https://github.com/aaronalphonso/housie" }
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["housie", "housie.models"]
