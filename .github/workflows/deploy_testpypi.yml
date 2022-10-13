@@ -1,10 +1,15 @@
-# This workflow will install Python dependencies, build and deploy the latest package to test-pypi
+# This workflow will install Python dependencies, build and deploy the latest package to pypi
 
-name: Test and Deploy to TestPyPi
+name: Deploy to TestPyPi
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      version_suffix:
+        description: 'Version suffix'
+        required: true
+        default: 1
+        type: number
 
 jobs:
   build:
@@ -53,5 +58,5 @@ jobs:
           TWINE_USERNAME: ${{ secrets.TEST_PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD }}
         run: |
-          python -m build
+          python -m build --config-setting=--global-option=egg_info --config-setting=--global-option=--tag-build=.pre.${{ inputs.version_suffix }}
           twine upload --repository testpypi dist/*
