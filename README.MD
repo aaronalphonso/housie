@@ -65,7 +65,7 @@ which you ran the game.
 It auto-marks your tickets as you enter the numbers called out. (NOTE: It's not as fun to play housie this way xD but 
 it is helpful if you're playing with multiple tickets)
 * Before starting this mode, you need to create a json file representing the tickets you want to use for the game. 
-You must name your file `followed_tickets.json`. Use the [sample file](src/data/followed_tickets.example.json) as a 
+You must name your file `followed_tickets.json`. Use the [sample file](data/followed_tickets.example.json) as a 
 reference. Create a folder named `data` in the current directory from where you intend to run the game and place your 
 file into that folder. These steps are important because
 the program expects to find the `followed_tickets.json` file inside a `data` folder in the current directory.
@@ -135,7 +135,7 @@ from housie import generate_ticket
 ticket = generate_ticket()
 ```
 `3.` You could also use the **load_tickets()** function to load your tickets from a json file (provided they are in the 
-correct format. For a sample file, refer [here](src/data/followed_tickets.example.json)). This function returns a 
+correct format. For a sample file, refer [here](data/followed_tickets.example.json)). This function returns a 
 dictionary in which the key is the name of the user and the value is the list of tickets belonging to that user.
 ```bash
 from housie import load_tickets

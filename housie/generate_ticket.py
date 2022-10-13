@@ -96,7 +96,7 @@ def assign_to_rows(column_wise_numbers: Dict[ColumnRange, List[Number]]) -> List
 
 def insert_from_columns_to_rows(column: List[Number], ticket: List[Row], row_num: int) -> int:
     """Insert numbers from the columns into the rows in a round-robin fashion.
-    Returns the row_num so it can be persisted between calls"""
+    Returns the row_num, so it can be persisted between calls"""
     numbers = sorted(column)
 
     # If we have to assign numbers to row 3 and row 1 of the same column, we should always assign the smaller
@@ -104,7 +104,7 @@ def insert_from_columns_to_rows(column: List[Number], ticket: List[Row], row_num
     # Figure out which rows we will be assigning the column numbers to. Assign in round robin logic starting from the
     # smallest row num possible.
     row_nums_to_assign_to = []
-    for number in numbers:
+    for _ in numbers:
         row_nums_to_assign_to.append(row_num)
         row_num = (row_num + 1) % 3
 

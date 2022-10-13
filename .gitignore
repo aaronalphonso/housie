@@ -8,8 +8,8 @@ src/housie/models/*.pyc
 src/__pycache__/*
 src/housie.egg-info/*
 src/housie/housie.egg-info/*
-src/housie/models/__pycache__/*
-src/data/*
+housie/models/__pycache__/*
+data/*
 build/*
 dist/*
 venv/*

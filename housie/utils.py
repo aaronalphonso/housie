@@ -29,7 +29,7 @@ def strike_through(text: str) -> str:
 
 
 def create_data_dir_if_not_exists() -> None:
-    """Creates a data directory if it does not exists. The data directory holds all game relevant data files"""
+    """Creates a data directory if it does not exist. The data directory holds all game relevant data files"""
     from housie.constants import DATA_DIR
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)

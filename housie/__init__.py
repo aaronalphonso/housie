@@ -1,5 +1,4 @@
 """Core models and logic required to simulate a game of Housie
-
 Board - For holding the state of the Housie board and the numbers selected so far.
 Ticket - For representing a single Housie ticket and the numbers on it as well as the numbers marked
 generate_ticket - A function that generates tickets for use in the game
