@@ -1,6 +1,6 @@
 [project]
 name = "housie"
-version = "0.2.0"
+version = "0.2.1"
 description = "All the core logic for playing/simulating the popular game 'Housie' (also known as 'Bingo' or 'Tambola')"
 readme = "README.md"
 requires-python = ">=3.6"
