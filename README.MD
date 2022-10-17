@@ -29,7 +29,7 @@ pip install --upgrade housie
 If you are just looking to play the game, it's pretty simple. Just open terminal and run the following command.
 
 ```bash
-python -m housie.game
+python -m housie
 ```
 This will start up the game and show you the main menu. 
 ![Main Menu Image](images/main_menu.png)
