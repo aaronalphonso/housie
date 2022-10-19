@@ -28,8 +28,8 @@ format:
 .PHONY: bandit
 bandit: 
 	@python -m bandit --version
-	@bandit -r .
-
+	@bandit -c bandit.yml -r .
+	
 .PHONY: test
 test:
 	@python -m pytest --version
