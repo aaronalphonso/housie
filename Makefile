@@ -34,3 +34,4 @@ bandit:
 test:
 	@python -m pytest --version
 	@python -m pytest tests
+	
