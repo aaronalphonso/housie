@@ -22,3 +22,6 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = ["housie", "housie.models"]
+
+[tool.isort]
+skip_glob = ["env/*","venv/*","tests/*","images/*"]

@@ -1,6 +1,3 @@
-
-FORMATTER = black
-
 .PHONY: help
 help:
 	@echo "---------------COMMANDS-----------------"
@@ -9,6 +6,18 @@ help:
 
 .PHONY: lint
 lint:
+	@python -m bandit --version
+	@echo -e "Running bandit on all files...\n"
+	@bandit -c bandit.yml -r .
+
+	@python -m mypy --version
+	@echo -e "Running mypy on all files...\n"
+	@mypy . --config-file mypy.ini 
+
+	@python -m flake8 --version
+	@echo -e "Running flake8 on all files...\n"
+	@flake8 .
+
 	@python -m pylint --version
 	@echo -e "Running pylint on all .py files...\n"
 	@pylint --recursive=y "."
@@ -21,9 +30,13 @@ flake:
 
 .PHONY: format
 format:
-	@python -m $(FORMATTER) --version
-	@echo -e "Formatting using $(FORMATTER)..."
-	@$(FORMATTER) .
+	@python -m black --version
+	@echo -e "Formatting using black..."
+	@black .
+
+	@python -m isort --version
+	@echo -e "Formatting using isort..."
+	@isort .
 
 .PHONY: bandit
 bandit: 
